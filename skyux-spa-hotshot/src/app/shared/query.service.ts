@@ -36,6 +36,7 @@ export interface SearchResult {
 export class QueryService {
   private static _resultsUpdated: EventEmitter<SearchResult>;
   public location: Location;
+  public distance: number;
   public socialTags: string[];
 
 
@@ -54,7 +55,7 @@ export class QueryService {
         "values":this.socialTags});
     } if (this.location) {
       filters.push({"type":"geo",
-        "field":"geolocation","distance":"300mi","latitude":this.location.latitude,"longitude":this.location.longitude,
+        "field":"geolocation","distance":`${this.distance}mi`,"latitude":this.location.latitude,"longitude":this.location.longitude,
         "address":"deez nuts"})
     }
     return this.http

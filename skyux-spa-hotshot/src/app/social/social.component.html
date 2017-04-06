@@ -43,9 +43,15 @@
       <hr/>
       <sky-grid [data]="results.searchHits" (sortFieldChange)="sortChanged($event)">
         <sky-grid-column id="donorName" field="fullName" heading="Name"></sky-grid-column>
-        <sky-grid-column id="lastTransaction" field="fields.lastTransaction" heading="Last Transaction"></sky-grid-column>
-        <sky-grid-column id="lifetimeTransaction" field="fields.lifetimeTransaction" heading="Lifetime Transactions"></sky-grid-column>
+        <sky-grid-column id="lastTransaction" field="fields.last_transaction_amount"
+                         heading="Last Transaction" [template]="currencyTemplate"></sky-grid-column>
+        <sky-grid-column id="lifetimeTransaction" field="fields.transaction_totals.lifetime_total"
+                         heading="Lifetime Transactions" [template]="currencyTemplate"></sky-grid-column>
       </sky-grid>
     </div>
   </div>
 </div>
+
+<template let-value="value" #currencyTemplate>
+  {{ value | currency: 'USD':true }}
+</template>

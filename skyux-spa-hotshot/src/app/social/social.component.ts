@@ -84,16 +84,22 @@ export class SocialComponent {
   public loadErMahResults () {
     this.service.socialTags = this.selectedSocialTags;
     if (this.locationFilters[0].checked) {
+      this.service.distance = this.selectedRadius.radius;
       this.service.location = this.location;
     }
     this.service.query()
         .subscribe(data => {
           this._results = data;
+          console.log(this._results.searchHits);
           this._results.searchHits.forEach((item, i) => {
             item.fullName = item.fields.cons_name.first + ' ' + item.fields.cons_name.last;
             item.id = i + 1;
           });
         });
+  }
+
+  public beCurrency(dollar) {
+    // return $filter('currency')(dollar, '$');
   }
 
   public clearResults() {
@@ -107,6 +113,7 @@ export class SocialComponent {
   static _getLocationRadiusOptions() {
     return [5, 10, 15, 20, 25, 30, 35, 40, 45, 50].map((radius) => {
       return {
+        radius,
         description: `${radius} miles`,
         selected: radius === 5 ? true : false
       };
