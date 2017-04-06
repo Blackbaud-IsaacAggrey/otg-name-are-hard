@@ -64,11 +64,15 @@ export class QueryService {
     return QueryService._resultsUpdated;
   }
 
-  public query(ermahBox: ErMahBox): Observable<ErMahBox> {
+  public query(values: string[]): Observable<ErMahBox> {
     return this.http
-      .post(`https://localhost:10010/nope`, {}) // NO THIS IS WRONG
+      .post(`https://localhost:8000/api/segment/constituents?set_from=0&set_size=20`,
+          {"filters":[{"type":"value","field":"social.aiTags",
+            "values":["vip"]}],
+            "fieldSorts":[{"field":"cons_name.last","ordering":"ASCENDING"},
+              {"field":"cons_name.first","ordering":"ASCENDING"}],"returnedFields":[]}) // NO THIS IS WRONG
         .map(response => response.json())
-        .do((results) => QueryService._resultsUpdated.emit(results))
-        .do(() => QueryService._ermahBoxChecked.emit(ermahBox));
+        .do((results) => console.log(results));
+        // .do((results) => QueryService._resultsUpdated.emit(results))
   }
 }
