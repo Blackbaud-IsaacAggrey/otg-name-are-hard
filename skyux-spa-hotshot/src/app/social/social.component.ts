@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { QueryService, ErMahBox } from '../shared/query.service';
+import { QueryService, ErMahBox, SearchResult } from '../shared/query.service';
 import { ListSortFieldSelectorModel } from '@blackbaud/skyux/dist/core';
 
 @Component({
@@ -9,6 +9,8 @@ import { ListSortFieldSelectorModel } from '@blackbaud/skyux/dist/core';
   styleUrls: ['./social.component.scss']
 })
 export class SocialComponent {
+  private _results: SearchResult = { searchHits: []};
+
   public socialFilters = [
     {
       description: 'VIP',
@@ -39,41 +41,27 @@ export class SocialComponent {
     }
   ];
 
-  private _results;
-
   get resultsAvailable() {
-    return typeof this._results !== 'undefined';
+    return this._results.searchHits.length > 0;
   }
 
   get results() {
     return this._results || [];
   }
 
-  public loadErMahResults() {
-    this._results = [
-      {
-        id: 1,
-        donorName: "Frodo Baggins",
-        lastTransaction: "$1,000,000",
-        lifetimeTransaction: "$100,000,000"
-      },
-      {
-        id: 2,
-        donorName: "Gollum",
-        lastTransaction: "-$50,000",
-        lifetimeTransaction: "-$100,000"
-      },
-      {
-        id: 3,
-        donorName: "Smeagol",
-        lastTransaction: "$50,000",
-        lifetimeTransaction: "-$100,000"
-      }
-    ];
+  public loadErMahResults () {
+    this.service.query(["vip"])
+        .subscribe(data => {
+          this._results = data;
+          this._results.searchHits.forEach((item, i) => {
+            item.fullName = item.fields.cons_name.first + ' ' + item.fields.cons_name.last;
+            item.id = i + 1;
+          });
+        });
   }
 
   public clearResults() {
-    delete this._results;
+    this._results.searchHits = [];
   }
 
   public sortChanged(activeSort: ListSortFieldSelectorModel) {
@@ -81,9 +69,5 @@ export class SocialComponent {
   }
 
   constructor(private service: QueryService) {
-    this.service.query(["vip"])
-        .subscribe(data => {
-          console.log(data);
-        })
   }
 }

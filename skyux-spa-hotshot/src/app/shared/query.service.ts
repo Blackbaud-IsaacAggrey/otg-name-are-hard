@@ -5,7 +5,8 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/do';
 
 export interface SearchHit {
-
+  id? : any;
+  fields: any;
 }
 
 export interface Aggregation {
@@ -21,10 +22,11 @@ export interface Filter {
 }
 
 export interface SearchResult {
-  totalHits: number;
-  searchString: string;
-  searchHits: SearchHit;
-  aggregations: Aggregation;
+  totalHits?: number;
+  scrollId?: string;
+  searchString?: string;
+  searchHits?: any[];
+  aggregations?: Aggregation;
 }
 
 
@@ -71,8 +73,7 @@ export class QueryService {
             "values":["vip"]}],
             "fieldSorts":[{"field":"cons_name.last","ordering":"ASCENDING"},
               {"field":"cons_name.first","ordering":"ASCENDING"}],"returnedFields":[]}) // NO THIS IS WRONG
-        .map(response => response.json())
-        .do((results) => console.log(results));
+        .map(response => response.json());
         // .do((results) => QueryService._resultsUpdated.emit(results))
   }
 }
