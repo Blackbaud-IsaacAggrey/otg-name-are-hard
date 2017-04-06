@@ -8,20 +8,39 @@ import { QueryService, ErMahBox } from '../shared/query.service';
   providers: [ QueryService ]
 })
 export class SocialComponent {
-  public checkboxes = [
+  public socialFilters = [
     {
-      name: 'VIP',
-      filter: 'vip'
+      description: 'VIP',
+      filter: 'vip',
+      checked: false,
+      disabled: false
     },
     {
-      name: 'Everyday',
-      filter: 'everyday'
+      description: 'Everyday',
+      filter: 'everyday',
+      checked: false,
+      disabled: false
     },
     {
-      name: 'Media Influencers',
-      filter: 'media'
+      description: 'Media Influencers',
+      filter: 'media',
+      checked: false,
+      disabled: false
     }
   ];
+
+  public locationFilters = [
+    {
+      description: 'Near me (\<TEMPLATE ME\> mi)',
+      filter: 'location',
+      checked: false,
+      disabled: false
+    }
+  ];
+
+  get resultsAvailable() {
+    return false;
+  }
 
   constructor(private service: QueryService) {
     this.service.query(["vip"])

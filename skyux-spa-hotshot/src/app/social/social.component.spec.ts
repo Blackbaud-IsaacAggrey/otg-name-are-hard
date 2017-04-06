@@ -14,24 +14,25 @@ describe('Social component', () => {
 
   it('should display a new teammate when one is added', () => {
     const name = 'Blackbaud';
-    const email = 'no-reply@blackbaud.com';
+    const filterName = 'coolguys';
     const fixture = TestBed.createComponent(SocialComponent);
 
-    fixture.componentInstance.checkboxes.push({
-      name: 'Blackbaud',
-      filter: 'no-reply@blackbaud.com'
+    fixture.componentInstance.socialFilters.push({
+      description: name,
+      filter: filterName,
+      checked: true,
+      disabled: false
     });
 
     fixture.detectChanges();
 
     const el = fixture.nativeElement;
-    const lastTeamEl = el.querySelector('.template-about-teams .template-about-team:last-child');
-    const namesEl = lastTeamEl.querySelector('sky-key-info-value');
-    const emailsEl = lastTeamEl.querySelector('sky-key-info-label');
+    const lastSocialFilterDiv = el.querySelector('.social-container:last-child');
+    const checkboxEl = lastSocialFilterDiv.querySelector('sky-checkbox');
+    const labelEl = checkboxEl.querySelector('sky-checkbox-label');
 
     // Using custom expect matchers
-    expect(namesEl).toHaveText(name);
-    expect(emailsEl).toHaveText(email);
+    expect(labelEl).toHaveText(name);
   });
 
 });
