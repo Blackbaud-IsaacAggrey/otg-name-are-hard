@@ -1,4 +1,5 @@
-  <sky-navbar>
+<sky-navbar>
+    <div class="content-container">
     <sky-navbar-item *ngFor="let n of nav">
       <a
         [routerLink]="n.path"
@@ -8,4 +9,5 @@
         {{ n.name }}
       </a>
     </sky-navbar-item>
-  </sky-navbar>
+  </div>
+</sky-navbar>

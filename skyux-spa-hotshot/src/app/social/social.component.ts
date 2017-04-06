@@ -42,19 +42,42 @@ export class SocialComponent {
   private _results;
 
   get resultsAvailable() {
-    return this._results == false;
+    return typeof this._results !== 'undefined';
   }
 
   get results() {
     return this._results || [];
   }
 
-  public loadErMahResults () {
-    this._results = [];
+  public loadErMahResults() {
+    this._results = [
+      {
+        id: 1,
+        donorName: "Frodo Baggins",
+        lastTransaction: "$1,000,000",
+        lifetimeTransaction: "$100,000,000"
+      },
+      {
+        id: 2,
+        donorName: "Gollum",
+        lastTransaction: "-$50,000",
+        lifetimeTransaction: "-$100,000"
+      },
+      {
+        id: 3,
+        donorName: "Smeagol",
+        lastTransaction: "$50,000",
+        lifetimeTransaction: "-$100,000"
+      }
+    ];
+  }
+
+  public clearResults() {
+    delete this._results;
   }
 
   public sortChanged(activeSort: ListSortFieldSelectorModel) {
-    console.log(activeSort);
+    // console.log(activeSort);
   }
 
   constructor(private service: QueryService) {
