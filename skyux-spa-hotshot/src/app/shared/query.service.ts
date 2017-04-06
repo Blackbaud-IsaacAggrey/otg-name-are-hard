@@ -70,7 +70,7 @@ export class QueryService {
     return this.http
       .post(`https://localhost:8000/api/segment/constituents?set_from=0&set_size=20`,
           {"filters":[{"type":"value","field":"social.aiTags",
-            "values":["vip"]}],
+            "values":values}],
             "fieldSorts":[{"field":"cons_name.last","ordering":"ASCENDING"},
               {"field":"cons_name.first","ordering":"ASCENDING"}],"returnedFields":[]}) // NO THIS IS WRONG
         .map(response => response.json());

@@ -14,19 +14,19 @@ export class SocialComponent {
   public socialFilters = [
     {
       description: 'VIP',
-      filter: 'vip',
+      filter: "vip",
       checked: false,
       disabled: false
     },
     {
       description: 'Everyday',
-      filter: 'everyday',
+      filter: "everyday",
       checked: false,
       disabled: false
     },
     {
-      description: 'Media Influencers',
-      filter: 'media',
+      description: 'Media influencers',
+      filter: "media",
       checked: false,
       disabled: false
     }
@@ -49,8 +49,18 @@ export class SocialComponent {
     return this._results || [];
   }
 
+  get checkedItems() {
+    return this.socialFilters.filter((item) => {
+      return item.checked;
+    }).map((checkedItem) => {
+      console.log(checkedItem.filter)
+      return checkedItem.filter;
+    })
+  }
+
   public loadErMahResults () {
-    this.service.query(["vip"])
+
+    this.service.query(this.checkedItems)
         .subscribe(data => {
           this._results = data;
           this._results.searchHits.forEach((item, i) => {
