@@ -1,0 +1,20 @@
+<app-nav></app-nav>
+<h1>About our Social Crap</h1>
+
+<sky-alert alertType="warning">
+  <strong>SOCIAL CRAP!</strong>
+</sky-alert>
+
+<div class="template-about-teams">
+  <div *ngFor="let checkbox of checkboxes" class="template-about-team">
+    <sky-avatar [name]="checkbox.name"></sky-avatar>
+    <sky-key-info [layout]="'horizontal'">
+      <sky-key-info-value>
+        {{ checkbox.name }}
+      </sky-key-info-value>
+      <sky-key-info-label>
+          {{ checkbox.filter }}
+      </sky-key-info-label>
+    </sky-key-info>
+  </div>
+</div>
