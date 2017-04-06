@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { QueryService, ErMahBox } from '../shared/query.service';
-
+import { ListSortFieldSelectorModel } from '@blackbaud/skyux/dist/core';
 
 @Component({
   selector: 'social',
@@ -38,8 +38,22 @@ export class SocialComponent {
     }
   ];
 
+  private _results;
+
   get resultsAvailable() {
-    return false;
+    return this._results == false;
+  }
+
+  get results() {
+    return this._results || [];
+  }
+
+  public loadErMahResults () {
+    this._results = [];
+  }
+
+  public sortChanged(activeSort: ListSortFieldSelectorModel) {
+    console.log(activeSort);
   }
 
   constructor(private service: QueryService) {

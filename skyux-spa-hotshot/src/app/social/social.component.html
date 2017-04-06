@@ -24,5 +24,10 @@
   </div>
   <div class="results-container" [hidden]="!resultsAvailable" >
     <hr/>
+    <sky-grid [data]="results" (sortFieldChange)="sortChanged($event)">
+      <sky-grid-column id="donorNameColumn" field="donorName" heading="Name"></sky-grid-column>
+      <sky-grid-column id="lastTransactionColumn" field="lastTransaction" heading="Last Transaction"></sky-grid-column>
+      <sky-grid-column id="lifetimeTransactionColumn" field="lifetimeTransactions" heading="Lifetime Transactions"></sky-grid-column>
+    </sky-grid>
   </div>
 </div>
