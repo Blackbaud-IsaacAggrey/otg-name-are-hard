@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { QueryService, ErMahBox, SearchResult, Location } from '../shared/query.service';
+import { QueryService, SearchResult } from '../shared/query.service';
 import { ListSortFieldSelectorModel } from '@blackbaud/skyux/dist/core';
 
 @Component({
@@ -9,7 +9,7 @@ import { ListSortFieldSelectorModel } from '@blackbaud/skyux/dist/core';
   styleUrls: ['./social.component.scss']
 })
 export class SocialComponent {
-  private _results: SearchResult = { searchHits: []};
+  private _results: SearchResult = { searchHits: [] };
 
   public socialFilters = [
     {
@@ -34,12 +34,14 @@ export class SocialComponent {
 
   public locationFilters = [
     {
-      description: 'Near me (\<TEMPLATE ME\> mi)',
+      description: 'Near me:',
       filter: 'location',
       checked: false,
       disabled: false
     }
   ];
+
+  public locationRadiusOptions = SocialComponent._getLocationRadiusOptions();
 
   get resultsAvailable() {
     return this._results.searchHits.length > 0;
@@ -58,13 +60,25 @@ export class SocialComponent {
     })
   }
 
-
-
   get location () {
-      return {
-        latitude: 30.35332,
-         longitude: -97.7444
-      }
+    return {
+      latitude: 30.35332,
+      longitude: -97.7444
+    };
+  }
+
+  get selectedRadius() {
+    let selection = this.locationRadiusOptions.filter((option) => {
+      return option.selected === true;
+    });
+    return selection.length > 0 ? selection[0] : this.locationRadiusOptions[0];
+  }
+
+  public selectRadius(radiusOption) {
+    this.locationRadiusOptions.map((elem) => {
+      elem.selected = false;
+    });
+    radiusOption.selected = true;
   }
 
   public loadErMahResults () {
@@ -90,6 +104,14 @@ export class SocialComponent {
     // console.log(activeSort);
   }
 
-  constructor(private service: QueryService) {
+  static _getLocationRadiusOptions() {
+    return [5, 10, 15, 20, 25, 30, 35, 40, 45, 50].map((radius) => {
+      return {
+        description: `${radius} miles`,
+        selected: radius === 5 ? true : false
+      };
+    });
   }
+
+  constructor(private service: QueryService) {}
 }

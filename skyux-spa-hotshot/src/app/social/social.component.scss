@@ -18,4 +18,21 @@ button {
 .filter-container {
   padding: 5px 10px;
   margin-bottom: 15px;
+
+  &.location-filter {
+    overflow: auto;
+  }
+}
+
+.location-checkbox-container {
+  display: inline-block;
+  float: left;
+  height: 100%;
+  padding: 5px 0;
+}
+
+.location-dropdown-container {
+  display: inline-block;
+  float: left;
+  margin-left: 5px;
 }
