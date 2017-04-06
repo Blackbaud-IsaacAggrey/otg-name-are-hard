@@ -13,21 +13,26 @@
 spec in SegmentationSpecification component test.
 1. Run that test and expect it to fail. Boom. 
 You have social data on your local elasticsearch cluster.
+1. `gw bootRun` in search-query
+1. `gw refN` in bluemoon-local-router
 1. Check out segmentation-component master.
+1. `gw refN` in segmentation-component
 1. gulp serve that thing.
 1. In THIS project, run `skyux build` to get the npm dependencies installed
-1. Go to `otg-team-ermahnerds/skyux-spa-hotshot/node_modules/@blackbaud/skyux-builder/config/webpack/serve.webpack.config.js` 
-and add the following property after publicPath in the devServer object: `proxy: {
-                                                                                    '/api': {
-                                                                                        "target": {
-                                                                                            "host": "localhost",
-                                                                                            "protocol": 'https:',
-                                                                                            "port": 9007
-                                                                                        },
-                                                                                        secure: false
-                                                                                    }
-                                                                                }
-                                                                              },`
+1. Go to `otg-team-ermahnerds/skyux-spa-hotshot/node_modules/@blackbaud/skyux-builder/config/webpack/serve.webpack.config.js` and add the following property after publicPath in the devServer object: 
+```js
+proxy: {
+      '/api': {
+          "target": {
+              "host": "localhost",
+              "protocol": 'https:',
+              "port": 9007
+          },
+          secure: false
+      }
+  }
+},`
+```
                                                                               
 1. Take a deep breath, you are almost done.
 1. In THIS project, run `skyux serve --launch local` 
