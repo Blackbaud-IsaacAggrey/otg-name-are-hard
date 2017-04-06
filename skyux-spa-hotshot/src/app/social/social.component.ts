@@ -5,7 +5,8 @@ import { ListSortFieldSelectorModel } from '@blackbaud/skyux/dist/core';
 @Component({
   selector: 'social',
   templateUrl: './social.component.html',
-  providers: [ QueryService ]
+  providers: [ QueryService ],
+  styleUrls: ['./social.component.scss']
 })
 export class SocialComponent {
   public socialFilters = [

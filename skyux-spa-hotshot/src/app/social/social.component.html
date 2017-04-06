@@ -1,33 +1,38 @@
 <app-nav></app-nav>
-<h1>About our Social Crap</h1>
 
-<div class="filters-container">
-  <div class="social-container">
-    <h2>I want to include...</h2>
-    <div *ngFor="let checkboxItem of socialFilters" class="socialFilter">
-      <sky-checkbox [(ngModel)]="checkboxItem.checked" [disabled]="checkboxItem.disabled">
-        <sky-checkbox-label>
-          {{ checkboxItem.description }}
-        </sky-checkbox-label>
-      </sky-checkbox>
+<div class="content-container">
+  <h1>Whurr Mah Nerds?</h1>
+  <div class="filters-container">
+    <div class="social-container">
+      <h2>I want to include...</h2>
+      <div *ngFor="let checkboxItem of socialFilters" class="filter-container social-filter">
+        <sky-checkbox [(ngModel)]="checkboxItem.checked" [disabled]="checkboxItem.disabled">
+          <sky-checkbox-label>
+            {{ checkboxItem.description }}
+          </sky-checkbox-label>
+        </sky-checkbox>
+      </div>
     </div>
-  </div>
-  <div class="location-container">
-    <h2>But only...</h2>
-    <div *ngFor="let checkboxItem of locationFilters">
-      <sky-checkbox [(ngModel)]="checkboxItem.checked" [disabled]="checkboxItem.disabled">
-        <sky-checkbox-label>
-          {{ checkboxItem.description }}
-        </sky-checkbox-label>
-      </sky-checkbox>
+    <div class="location-container">
+      <h2>But only...</h2>
+      <div *ngFor="let checkboxItem of locationFilters" class="filter-container location-filter">
+        <sky-checkbox [(ngModel)]="checkboxItem.checked" [disabled]="checkboxItem.disabled">
+          <sky-checkbox-label>
+            {{ checkboxItem.description }}
+          </sky-checkbox-label>
+        </sky-checkbox>
+      </div>
     </div>
-  </div>
-  <div class="results-container" [hidden]="!resultsAvailable" >
-    <hr/>
-    <sky-grid [data]="results" (sortFieldChange)="sortChanged($event)">
-      <sky-grid-column id="donorNameColumn" field="donorName" heading="Name"></sky-grid-column>
-      <sky-grid-column id="lastTransactionColumn" field="lastTransaction" heading="Last Transaction"></sky-grid-column>
-      <sky-grid-column id="lifetimeTransactionColumn" field="lifetimeTransactions" heading="Lifetime Transactions"></sky-grid-column>
-    </sky-grid>
+    <div class="get-results-button-container">
+      <button type="button" id="getResultsButton" class="btn btn-lg btn-primary submit">Go!</button>
+    </div>
+    <div class="results-container" [hidden]="!resultsAvailable" >
+      <hr/>
+      <sky-grid [data]="results" (sortFieldChange)="sortChanged($event)">
+        <sky-grid-column id="donorNameColumn" field="donorName" heading="Name"></sky-grid-column>
+        <sky-grid-column id="lastTransactionColumn" field="lastTransaction" heading="Last Transaction"></sky-grid-column>
+        <sky-grid-column id="lifetimeTransactionColumn" field="lifetimeTransactions" heading="Lifetime Transactions"></sky-grid-column>
+      </sky-grid>
+    </div>
   </div>
 </div>
