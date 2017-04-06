@@ -106,6 +106,12 @@ export class SocialComponent {
     this._results.searchHits = [];
   }
 
+  get emails() {
+    return this._results.searchHits.map((result) => {
+      return result.fields.email[0].address; // TODO: deal with jerks that don't have emails
+    })
+  }
+
   public sortChanged(activeSort: ListSortFieldSelectorModel) {
     // console.log(activeSort);
   }
