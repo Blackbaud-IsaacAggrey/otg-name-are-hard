@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { QueryService, ErMahBox, SearchResult } from '../shared/query.service';
+import { QueryService, ErMahBox, SearchResult, Location } from '../shared/query.service';
 import { ListSortFieldSelectorModel } from '@blackbaud/skyux/dist/core';
 
 @Component({
@@ -49,18 +49,30 @@ export class SocialComponent {
     return this._results || [];
   }
 
-  get checkedItems() {
+  get selectedSocialTags() {
     return this.socialFilters.filter((item) => {
       return item.checked;
     }).map((checkedItem) => {
-      console.log(checkedItem.filter)
+      console.log(checkedItem.filter);
       return checkedItem.filter;
     })
   }
 
-  public loadErMahResults () {
 
-    this.service.query(this.checkedItems)
+
+  get location () {
+      return {
+        latitude: 30.35332,
+         longitude: -97.7444
+      }
+  }
+
+  public loadErMahResults () {
+    this.service.socialTags = this.selectedSocialTags;
+    if (this.locationFilters[0].checked) {
+      this.service.location = this.location;
+    }
+    this.service.query()
         .subscribe(data => {
           this._results = data;
           this._results.searchHits.forEach((item, i) => {
