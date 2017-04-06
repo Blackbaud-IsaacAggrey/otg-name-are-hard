@@ -1,8 +1,11 @@
 import { Component } from '@angular/core';
+import { QueryService, ErMahBox } from '../shared/query.service';
+
 
 @Component({
   selector: 'social',
-  templateUrl: './social.component.html'
+  templateUrl: './social.component.html',
+  providers: [ QueryService ]
 })
 export class SocialComponent {
   public checkboxes = [
@@ -20,5 +23,10 @@ export class SocialComponent {
     }
   ];
 
-  constructor() {}
+  constructor(private service: QueryService) {
+    this.service.query(["vip"])
+        .subscribe(data => {
+          console.log(data);
+        })
+  }
 }
