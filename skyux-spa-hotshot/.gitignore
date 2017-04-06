@@ -24,3 +24,9 @@ dist
 
 # OS specific files
 .DS_Store
+
+# IDEA files
+*.iml
+*.ipr
+*.iws
+
