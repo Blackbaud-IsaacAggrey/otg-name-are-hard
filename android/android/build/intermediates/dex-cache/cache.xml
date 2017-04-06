@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="/Users/lauren.hunter/fun/otg/otg-team-ermahnerds/android/android/app/build/intermediates/exploded-aar/com.facebook.fresco/imagepipeline-okhttp3/1.0.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="ba9b39366b723ccff6359d1117332968e98a4aca">
+        <dex dex="/Users/lauren.hunter/fun/otg/otg-team-ermahnerds/android/android/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-imagepipeline-okhttp3-1.0.1_775e49a9e2ea1d22c8002fa003e537cd98d86551.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/lauren.hunter/fun/otg/otg-team-ermahnerds/android/android/app/build/intermediates/exploded-aar/com.facebook.fresco/fresco/1.0.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="cf836a435a496eb22ff2aa69aa1e619462549f81">
+        <dex dex="/Users/lauren.hunter/fun/otg/otg-team-ermahnerds/android/android/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-fresco-1.0.1_682b047840ec8461e5aaa22e59ba52854dcfa4b1.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/lauren.hunter/fun/otg/otg-team-ermahnerds/android/android/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.4.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="67bd36ee9340ec7c254108936ad16b24bed160cc">
+        <dex dex="/Users/lauren.hunter/fun/otg/otg-team-ermahnerds/android/android/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-23.4.0_261f88cae5843fb3c48a4b8635b5eac4be6f6247.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/lauren.hunter/fun/otg/otg-team-ermahnerds/android/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.43.2/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="dd7e9e4044d541b253c526294b9f4985029d846c">
+        <dex dex="/Users/lauren.hunter/fun/otg/otg-team-ermahnerds/android/android/app/build/intermediates/pre-dexed/debug/com.facebook.react-react-native-0.43.2_6eabe6322f2be8786f2ef8f2cd667f5f85c6194e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/lauren.hunter/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp/3.4.1/c7c4f9e35c2fd5900da24f9872e3971801f08ce0/okhttp-3.4.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="c7c4f9e35c2fd5900da24f9872e3971801f08ce0">
+        <dex dex="/Users/lauren.hunter/fun/otg/otg-team-ermahnerds/android/android/app/build/intermediates/pre-dexed/debug/okhttp-3.4.1_f6cc2fe06a3bb5c8678c9aced6e540aa7f44aa8b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/lauren.hunter/fun/otg/otg-team-ermahnerds/android/android/app/build/intermediates/exploded-aar/com.facebook.fresco/drawee/1.0.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="5a61f17cd72e20aa4323cbf5f909b7c609619275">
+        <dex dex="/Users/lauren.hunter/fun/otg/otg-team-ermahnerds/android/android/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-drawee-1.0.1_3f25629e272e1c4044528e4827c7592fcbff4d03.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/lauren.hunter/fun/otg/otg-team-ermahnerds/android/android/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.4.0/jars/libs/internal_impl-23.4.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="ea3c07504d2c8f4b13aa17c45c1b68ed9c1c3674">
+        <dex dex="/Users/lauren.hunter/fun/otg/otg-team-ermahnerds/android/android/app/build/intermediates/pre-dexed/debug/internal_impl-23.4.0_afa54ac682c628f1aeec954f6adc3fa874693f8f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/lauren.hunter/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/23.4.0/support-annotations-23.4.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="ffbe55fdb2bb456b1485831706a9eac3300bb6b8">
+        <dex dex="/Users/lauren.hunter/fun/otg/otg-team-ermahnerds/android/android/app/build/intermediates/pre-dexed/debug/support-annotations-23.4.0_1c95ef66f3ff2db4bd0e79fd7b6467232c297b98.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/lauren.hunter/fun/otg/otg-team-ermahnerds/android/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.43.2/jars/libs/infer-annotations-1.5.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="dcac634e137395f79693ec760f081a86eb2bd84e">
+        <dex dex="/Users/lauren.hunter/fun/otg/otg-team-ermahnerds/android/android/app/build/intermediates/pre-dexed/debug/infer-annotations-1.5_0c68a4cc25a100e889ea5312a6bb0d9a316c4604.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/lauren.hunter/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp-urlconnection/3.4.1/63994437f62bc861bc20c605d12962f7246116d1/okhttp-urlconnection-3.4.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="63994437f62bc861bc20c605d12962f7246116d1">
+        <dex dex="/Users/lauren.hunter/fun/otg/otg-team-ermahnerds/android/android/app/build/intermediates/pre-dexed/debug/okhttp-urlconnection-3.4.1_eacc6a2a8b071063be3e596bb2b7fd85fd9b8f14.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/lauren.hunter/fun/otg/otg-team-ermahnerds/android/android/app/build/intermediates/exploded-aar/com.facebook.fresco/fbcore/1.0.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="2668e49e4e31c7d451b76a36009b902bf44e0d70">
+        <dex dex="/Users/lauren.hunter/fun/otg/otg-team-ermahnerds/android/android/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-fbcore-1.0.1_9bda4ca528d839756c955b4a7e61b9dc96563cda.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/lauren.hunter/.gradle/caches/modules-2/files-2.1/com.facebook.fbui.textlayoutbuilder/staticlayout-proxy/1.0/f162442a19fff13995fbd51ba414d9ee05579080/staticlayout-proxy-1.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="f162442a19fff13995fbd51ba414d9ee05579080">
+        <dex dex="/Users/lauren.hunter/fun/otg/otg-team-ermahnerds/android/android/app/build/intermediates/pre-dexed/debug/staticlayout-proxy-1.0_dc83fd9b9e35cc74f796d62de1149674d355b297.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/lauren.hunter/.gradle/caches/modules-2/files-2.1/javax.inject/javax.inject/1/6975da39a7040257bd51d21a231b76c915872d38/javax.inject-1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="6975da39a7040257bd51d21a231b76c915872d38">
+        <dex dex="/Users/lauren.hunter/fun/otg/otg-team-ermahnerds/android/android/app/build/intermediates/pre-dexed/debug/javax.inject-1_bccf0ed556fa8ca4e93b684f70f943c7ee19badb.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/lauren.hunter/fun/otg/otg-team-ermahnerds/android/android/app/build/intermediates/exploded-aar/com.facebook.fresco/imagepipeline/1.0.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="d9c4402c3057225d80cbbbec52154e7a25b0ebdf">
+        <dex dex="/Users/lauren.hunter/fun/otg/otg-team-ermahnerds/android/android/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-imagepipeline-1.0.1_702e263f7f03dda5a489209e116841d1c864325e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/lauren.hunter/fun/otg/otg-team-ermahnerds/android/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="d86429b0f0b3f3cafbeb78dda1b9d89119ccb05d">
+        <dex dex="/Users/lauren.hunter/fun/otg/otg-team-ermahnerds/android/android/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-23.0.1_4f2cc213c85ce53ab6ad5a1a1f832c43c8fb40e2.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/lauren.hunter/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-tasks/1.4.0/d85884acf6810a3bbbecb587f239005cbc846dc4/bolts-tasks-1.4.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="d85884acf6810a3bbbecb587f239005cbc846dc4">
+        <dex dex="/Users/lauren.hunter/fun/otg/otg-team-ermahnerds/android/android/app/build/intermediates/pre-dexed/debug/bolts-tasks-1.4.0_83e54ae5b7990d532e93dc44a846c4bb005a80e0.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/lauren.hunter/fun/otg/otg-team-ermahnerds/android/android/app/build/intermediates/exploded-aar/com.facebook.soloader/soloader/0.1.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="8f615bca00639150c9eb6175d4b5471193f70794">
+        <dex dex="/Users/lauren.hunter/fun/otg/otg-team-ermahnerds/android/android/app/build/intermediates/pre-dexed/debug/com.facebook.soloader-soloader-0.1.0_59d67861e91e7fe5a64caa9c6b1fd5a795c59d51.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/lauren.hunter/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/1.9.0/f824591a0016efbaeddb8300bee54832a1398cfa/okio-1.9.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="f824591a0016efbaeddb8300bee54832a1398cfa">
+        <dex dex="/Users/lauren.hunter/fun/otg/otg-team-ermahnerds/android/android/app/build/intermediates/pre-dexed/debug/okio-1.9.0_2d160cff0b83917bec24700db02661e67465756d.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/lauren.hunter/fun/otg/otg-team-ermahnerds/android/android/app/build/intermediates/exploded-aar/com.facebook.fbui.textlayoutbuilder/textlayoutbuilder/1.0.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="f90b593491e4044903f0bbf68dc3fa2790b151b9">
+        <dex dex="/Users/lauren.hunter/fun/otg/otg-team-ermahnerds/android/android/app/build/intermediates/pre-dexed/debug/com.facebook.fbui.textlayoutbuilder-textlayoutbuilder-1.0.0_9b2e1258058eaf3a1165b6af5c397743b01a2ae9.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/lauren.hunter/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp-ws/3.4.1/8ace66ef7002d98f633377c9e67daeeb196d8c3b/okhttp-ws-3.4.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="8ace66ef7002d98f633377c9e67daeeb196d8c3b">
+        <dex dex="/Users/lauren.hunter/fun/otg/otg-team-ermahnerds/android/android/app/build/intermediates/pre-dexed/debug/okhttp-ws-3.4.1_366712e4e940a69e108694c40c147601d5aeb0d1.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/lauren.hunter/.gradle/caches/modules-2/files-2.1/com.google.code.findbugs/jsr305/3.0.0/5871fb60dc68d67da54a663c3fd636a10a532948/jsr305-3.0.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="5871fb60dc68d67da54a663c3fd636a10a532948">
+        <dex dex="/Users/lauren.hunter/fun/otg/otg-team-ermahnerds/android/android/app/build/intermediates/pre-dexed/debug/jsr305-3.0.0_3c8c50447bf309feb174fc4034b5597748d7a556.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/lauren.hunter/fun/otg/otg-team-ermahnerds/android/android/app/build/intermediates/exploded-aar/com.facebook.fresco/imagepipeline-base/1.0.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="050f688115ea65a0292d8483a6ffe6bcdab1e2ef">
+        <dex dex="/Users/lauren.hunter/fun/otg/otg-team-ermahnerds/android/android/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-imagepipeline-base-1.0.1_649ab4e5919a5eff2d94eec369e92ff6cae0e3c5.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/lauren.hunter/fun/otg/otg-team-ermahnerds/android/android/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.4.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="ec75036c3c52e451d0cde50a5aedaf5fd32354a0">
+        <dex dex="/Users/lauren.hunter/fun/otg/otg-team-ermahnerds/android/android/app/build/intermediates/pre-dexed/debug/com.android.support-recyclerview-v7-23.4.0_9c2c6e26e96c8a3698e955fa4ea8615eae4ceeb9.jar" />
+    </item>
+
+</items>
