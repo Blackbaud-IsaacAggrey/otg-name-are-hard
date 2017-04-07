@@ -1,0 +1,57 @@
+<!--<app-nav></app-nav>-->
+
+<div class="content-container">
+  <h1>Whurr Mah Nerds?</h1>
+  <div class="filters-container">
+    <div class="social-container">
+      <h2>I want to include...</h2>
+      <div *ngFor="let checkboxItem of socialFilters" class="filter-container social-filter">
+        <sky-checkbox [(ngModel)]="checkboxItem.checked" [disabled]="checkboxItem.disabled">
+          <sky-checkbox-label>
+            {{ checkboxItem.description }}
+          </sky-checkbox-label>
+        </sky-checkbox>
+      </div>
+    </div>
+    <div class="location-container">
+      <h2>But only...</h2>
+      <div *ngFor="let checkboxItem of locationFilters" class="filter-container location-filter">
+        <div class="location-checkbox-container">
+          <sky-checkbox [(ngModel)]="checkboxItem.checked" [disabled]="checkboxItem.disabled">
+            <sky-checkbox-label>{{ checkboxItem.description }}</sky-checkbox-label>
+          </sky-checkbox>
+        </div>
+        <div class="location-dropdown-container">
+          <sky-dropdown>
+            <sky-dropdown-button>{{ selectedRadius.description }}</sky-dropdown-button>
+            <sky-dropdown-menu>
+              <sky-dropdown-item *ngFor="let radius of locationRadiusOptions">
+                <button type="button" (click)="selectRadius(radius)">{{ radius.description }}</button>
+              </sky-dropdown-item>
+            </sky-dropdown-menu>
+          </sky-dropdown>
+        </div>
+      </div>
+    </div>
+    <div class="get-results-button-container">
+      <button type="button" id="getResultsButton" class="sky-btn sky-btn-primary"
+              (click)="loadErMahResults()" [hidden]="resultsAvailable">Go!</button>
+      <button type="button" id="clearResultsButton" class="sky-btn sky-btn-primary"
+              (click)="clearResults()" [hidden]="!resultsAvailable">Clear the nerds!</button>
+    </div>
+    <div class="results-container" [hidden]="!resultsAvailable" >
+      <hr/>
+      <sky-grid [data]="results.searchHits" (sortFieldChange)="sortChanged($event)">
+        <sky-grid-column id="donorName" field="fullName" heading="Name"></sky-grid-column>
+        <sky-grid-column id="lastTransaction" field="fields.last_transaction_amount"
+                         heading="Last Transaction" [template]="currencyTemplate"></sky-grid-column>
+        <sky-grid-column id="lifetimeTransaction" field="fields.transaction_totals.lifetime_total"
+                         heading="Lifetime Transactions" [template]="currencyTemplate"></sky-grid-column>
+      </sky-grid>
+    </div>
+  </div>
+</div>
+
+<template let-value="value" #currencyTemplate>
+  {{ value | currency: 'USD':true }}
+</template>
