@@ -47,7 +47,9 @@
         </a>
       </h1>
       <sky-grid [data]="results.searchHits" (sortFieldChange)="sortChanged($event)">
-        <sky-grid-column id="donorName" field="fullName" heading="Name"></sky-grid-column>
+        <sky-grid-column width=30 id="badge" field="influencerType" [template]="badgeTemplate"></sky-grid-column>
+        <sky-grid-column id="donorName" field="fullName"
+                         heading="Name" [template]="nameTemplate"></sky-grid-column>
         <sky-grid-column id="lastTransaction" field="fields.last_transaction_amount"
                          heading="Last Transaction" [template]="currencyTemplate"></sky-grid-column>
         <sky-grid-column id="lifetimeTransaction" field="fields.transaction_totals.lifetime_total"
@@ -59,4 +61,8 @@
 
 <template let-value="value" #currencyTemplate>
   {{ value | currency: 'USD':true }}
+</template>
+
+<template let-value="value" #badgeTemplate>
+  <i class="fa fa-{{ value }}" aria-hidden="true"></i>
 </template>

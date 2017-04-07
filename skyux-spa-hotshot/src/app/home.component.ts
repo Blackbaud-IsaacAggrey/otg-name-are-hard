@@ -64,23 +64,12 @@ export class SocialComponent implements OnInit {
     return this.socialFilters.filter((item) => {
       return item.checked;
     }).map((checkedItem) => {
-      console.log(checkedItem.filter);
       return checkedItem.filter;
     })
   }
 
   get location () {
     return this.userPosition;
-  }
-
-  public emailNerds() {
-    this.emails.forEach((email) => {
-      this.emailANerd(email);
-    });
-  }
-
-  private emailANerd(emailAddress) {
-    console.log(emailAddress);
   }
 
   get selectedRadius() {
@@ -92,9 +81,8 @@ export class SocialComponent implements OnInit {
 
   get mailAddress() {
     let emailList = '';
-    console.log(this.emails);
     if (this.emails.length > 0) {
-      emailList = this.emails.join(';')
+      emailList = this.emails.join()
     }
 
     return `mailto:nerds@ermernerds.com?subject=WudUp Nerds!&bcc=${emailList}`;
@@ -122,8 +110,14 @@ export class SocialComponent implements OnInit {
           this._results.searchHits.forEach((item, i) => {
             item.fullName = item.fields.cons_name.first + ' ' + item.fields.cons_name.last;
             item.id = i + 1;
+            console.log(item.fields.social.aiTags);
+            item.influencerType = this.getIcon(item.fields.social.aiTags);
           });
         });
+  }
+
+  private getIcon(value) {
+    return value === 'vip' ? 'trophy' : value === 'media' ? 'newspaper-o' : value === 'everyday' ? 'bullhorn' : '';
   }
 
   public beCurrency(dollar) {

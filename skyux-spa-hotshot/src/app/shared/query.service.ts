@@ -7,6 +7,7 @@ import 'rxjs/add/operator/do';
 export interface SearchHit {
   id? : any;
   fullName?: string;
+  influencerType?: string;
   fields: any;
 }
 
