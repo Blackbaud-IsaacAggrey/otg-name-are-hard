@@ -64,5 +64,7 @@
 </template>
 
 <template let-value="value" #badgeTemplate>
-  <i class="fa fa-{{ value }}" aria-hidden="true"></i>
+  <i class="fa fa-{{ value === 'vip' ? 'trophy' : value === 'media' ? 'newspaper-o' : value === 'everyday' ? 'bullhorn' : '' }}"
+     data-toggle="tooltip"
+     title="{{value}}" aria-hidden="true"></i>
 </template>

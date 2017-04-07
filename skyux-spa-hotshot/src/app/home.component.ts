@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { QueryService, SearchResult } from './shared/query.service';
 import { ListSortFieldSelectorModel } from '@blackbaud/skyux/dist/core';
+import { SkyModalInstance } from '@blackbaud/skyux/dist/core';
+import { SkyModalDemoContext } from './modal-demo-context';
 
 @Component({
   selector: 'social',
@@ -111,7 +113,7 @@ export class SocialComponent implements OnInit {
             item.fullName = item.fields.cons_name.first + ' ' + item.fields.cons_name.last;
             item.id = i + 1;
             console.log(item.fields.social.aiTags);
-            item.influencerType = this.getIcon(item.fields.social.aiTags);
+            item.influencerType = item.fields.social.aiTags;
           });
         });
   }
