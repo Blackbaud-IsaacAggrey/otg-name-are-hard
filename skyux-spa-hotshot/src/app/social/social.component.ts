@@ -86,11 +86,13 @@ export class SocialComponent {
     if (this.locationFilters[0].checked) {
       this.service.distance = this.selectedRadius.radius;
       this.service.location = this.location;
+    } else {
+      delete this.service.location;
     }
     this.service.query()
         .subscribe(data => {
           this._results = data;
-          console.log(this._results.searchHits);
+          // console.log(this._results.searchHits);
           this._results.searchHits.forEach((item, i) => {
             item.fullName = item.fields.cons_name.first + ' ' + item.fields.cons_name.last;
             item.id = i + 1;

@@ -53,7 +53,9 @@ export class QueryService {
     if (this.socialTags.length > 0) {
       filters.push({"type":"value","field":"social.aiTags",
         "values":this.socialTags});
-    } if (this.location) {
+    }
+
+    if (this.location) {
       filters.push({"type":"geo",
         "field":"geolocation","distance":`${this.distance}mi`,"latitude":this.location.latitude,"longitude":this.location.longitude,
         "address":"deez nuts"})
