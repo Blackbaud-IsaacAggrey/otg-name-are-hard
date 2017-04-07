@@ -67,11 +67,31 @@ export class SocialComponent {
     };
   }
 
+  public emailNerds() {
+    this.emails.forEach((email) => {
+      this.emailANerd(email);
+    });
+  }
+
+  private emailANerd(emailAddress) {
+    console.log(emailAddress);
+  }
+
   get selectedRadius() {
     let selection = this.locationRadiusOptions.filter((option) => {
       return option.selected === true;
     });
     return selection.length > 0 ? selection[0] : this.locationRadiusOptions[0];
+  }
+
+  get mailAddress() {
+    let emailList = '';
+    console.log(this.emails);
+    if (this.emails.length > 0) {
+      emailList = this.emails.join(';')
+    }
+
+    return `mailto:nerds@ermernerds.com?subject=WudUp Nerds!&bcc=${emailList}`;
   }
 
   public selectRadius(radiusOption) {
