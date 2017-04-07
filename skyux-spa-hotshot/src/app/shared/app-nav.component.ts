@@ -8,8 +8,12 @@ import { Component } from '@angular/core';
 export class AppNavComponent {
   public nav = [
     {
-      name: 'NERD TIME',
+      name: 'Home',
       path: '/'
     },
+    {
+      name: 'Nerds',
+      path: '/nerds'
+    }
   ];
 }

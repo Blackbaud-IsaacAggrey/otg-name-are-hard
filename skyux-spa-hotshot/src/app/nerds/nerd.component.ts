@@ -1,14 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { QueryService, SearchResult } from './shared/query.service';
-import { ListSortFieldSelectorModel } from '@blackbaud/skyux/dist/core';
+import { QueryService, SearchResult } from '../shared/query.service';
 
 @Component({
-  selector: 'social',
-  templateUrl: './home.component.html',
+  selector: 'nerd',
+  templateUrl: './nerd.component.html',
   providers: [ QueryService ],
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./nerd.component.scss']
 })
-export class SocialComponent implements OnInit {
+export class NerdComponent implements OnInit {
   private _results: SearchResult = { searchHits: [] };
   private userPosition: Coordinates = {
       latitude: 30.35332,
@@ -22,19 +21,19 @@ export class SocialComponent implements OnInit {
 
   public socialFilters = [
     {
-      description: 'VIP',
+      description: 'Gryff Nerds',
       filter: "vip",
       checked: false,
       disabled: false
     },
     {
-      description: 'Everyday',
+      description: 'Ewoks',
       filter: "everyday",
       checked: false,
       disabled: false
     },
     {
-      description: 'Media influencers',
+      description: 'Ermagerneers',
       filter: "media",
       checked: false,
       disabled: false
@@ -43,14 +42,14 @@ export class SocialComponent implements OnInit {
 
   public locationFilters = [
     {
-      description: 'Near me:',
+      description: 'Galactic distance:',
       filter: 'location',
       checked: false,
       disabled: false
     }
   ];
 
-  public locationRadiusOptions = SocialComponent._getLocationRadiusOptions();
+  public locationRadiusOptions = NerdComponent._getLocationRadiusOptions();
 
   get resultsAvailable() {
     return this._results.searchHits.length > 0;
@@ -85,7 +84,7 @@ export class SocialComponent implements OnInit {
       emailList = this.emails.join()
     }
 
-    return `mailto:nerds@ermernerds.com?subject=Help Good Take Over!&bcc=${emailList}`;
+    return `mailto:nerds@ermernerds.com?subject=WudUp Nerds!&bcc=${emailList}`;
   }
 
   public selectRadius(radiusOption) {
@@ -128,15 +127,11 @@ export class SocialComponent implements OnInit {
     })
   }
 
-  public sortChanged(activeSort: ListSortFieldSelectorModel) {
-    // console.log(activeSort);
-  }
-
   static _getLocationRadiusOptions() {
     return [5, 20, 50, 100, 300].map((radius) => {
       return {
         radius,
-        description: `${radius} miles`,
+        description: `${radius} parsecs`,
         selected: radius === 5 ? true : false
       };
     });

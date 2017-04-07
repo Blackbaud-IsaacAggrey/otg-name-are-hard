@@ -1,10 +1,10 @@
 <app-nav></app-nav>
 
 <div class="content-container">
-  <h1>Who can I reach?</h1>
+  <h1>Whurr Mah Nerds?</h1>
   <div class="filters-container">
     <div class="social-container">
-      <h2>I want to include...</h2>
+      <h2>Rep factor</h2>
       <div *ngFor="let checkboxItem of socialFilters" class="filter-container social-filter">
         <sky-checkbox [(ngModel)]="checkboxItem.checked" [disabled]="checkboxItem.disabled">
           <sky-checkbox-label>
@@ -14,7 +14,7 @@
       </div>
     </div>
     <div class="location-container">
-      <h2>But only...</h2>
+      <h2>PROXIMITY...</h2>
       <div *ngFor="let checkboxItem of locationFilters" class="filter-container location-filter">
         <div class="location-checkbox-container">
           <sky-checkbox [(ngModel)]="checkboxItem.checked" [disabled]="checkboxItem.disabled">
@@ -35,25 +35,27 @@
     </div>
     <div class="get-results-button-container">
       <button type="button" id="getResultsButton" class="sky-btn sky-btn-primary"
-              (click)="loadErMahResults()" [hidden]="resultsAvailable">Go!</button>
+              (click)="loadErMahResults()" [hidden]="resultsAvailable">Engage!</button>
       <button type="button" id="clearResultsButton" class="sky-btn sky-btn-action"
-              (click)="loadErMahResults()" [hidden]="!resultsAvailable">Refresh results</button>
+              (click)="loadErMahResults()" [hidden]="!resultsAvailable">Recompute!</button>
     </div>
     <div class="results-container" [hidden]="!resultsAvailable" >
       <hr/>
-      <h1>You can reach {{ totalHits }} influencers!
+      <h1 class="total-nerds-exclamation">ERMEHGERD! Approximately {{ totalHits }} proximal nerds!
       </h1>
-      <p><a role="button" id="emailNerdsButton" class="sky-btn sky-btn-primary"
-             [href]="mailAddress" [hidden]="!resultsAvailable">Spread the social good
-      </a></p>
+      <p>
+        <a role="button" id="emailNerdsButton" class="sky-btn sky-btn-primary"
+           [href]="mailAddress" [hidden]="!resultsAvailable">Holler at those nerds!
+        </a>
+      </p>
       <sky-grid [data]="results.searchHits" (sortFieldChange)="sortChanged($event)">
         <sky-grid-column width=30 id="badge" field="influencerType" [template]="badgeTemplate"></sky-grid-column>
         <sky-grid-column id="donorName" field="fullName"
-                         heading="Name" [template]="nameTemplate"></sky-grid-column>
+                         heading="Nerd" [template]="nameTemplate"></sky-grid-column>
         <sky-grid-column id="lastTransaction" field="fields.last_transaction_amount"
-                         heading="Last Transaction" [template]="currencyTemplate"></sky-grid-column>
+                         heading="Comic Book Budget" [template]="currencyTemplate"></sky-grid-column>
         <sky-grid-column id="lifetimeTransaction" field="fields.transaction_totals.lifetime_total"
-                         heading="Lifetime Transactions" [template]="currencyTemplate"></sky-grid-column>
+                         heading="Estimated Value of Magic The Gathering Collection" [template]="currencyTemplate"></sky-grid-column>
       </sky-grid>
     </div>
   </div>
@@ -64,7 +66,7 @@
 </template>
 
 <template let-value="value" #badgeTemplate>
-  <i class="fa fa-{{ value === 'vip' ? 'trophy' : value === 'media' ? 'newspaper-o' : value === 'everyday' ? 'bullhorn' : '' }}"
+  <i class="fa fa-{{ value === 'vip' ? 'magic' : value === 'media' ? 'gears' : value === 'everyday' ? 'rocket' : '' }}"
      data-toggle="tooltip"
      title="{{value}}" aria-hidden="true"></i>
 </template>
