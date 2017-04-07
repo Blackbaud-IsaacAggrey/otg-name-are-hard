@@ -1,8 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { QueryService, SearchResult } from './shared/query.service';
-import { ListSortFieldSelectorModel } from '@blackbaud/skyux/dist/core';
-import { SkyModalInstance } from '@blackbaud/skyux/dist/core';
-import { SkyModalDemoContext } from './modal-demo-context';
 
 @Component({
   selector: 'social',
@@ -108,11 +105,9 @@ export class SocialComponent implements OnInit {
     this.service.query()
         .subscribe(data => {
           this._results = data;
-          // console.log(this._results.searchHits);
           this._results.searchHits.forEach((item, i) => {
             item.fullName = item.fields.cons_name.first + ' ' + item.fields.cons_name.last;
             item.id = i + 1;
-            console.log(item.fields.social.aiTags);
             item.influencerType = item.fields.social.aiTags;
           });
         });
@@ -120,14 +115,6 @@ export class SocialComponent implements OnInit {
 
   private getIcon(value) {
     return value === 'vip' ? 'trophy' : value === 'media' ? 'newspaper-o' : value === 'everyday' ? 'bullhorn' : '';
-  }
-
-  public beCurrency(dollar) {
-    // return $filter('currency')(dollar, '$');
-  }
-
-  public clearResults() {
-    this._results.searchHits = [];
   }
 
   get totalHits() {
@@ -138,10 +125,6 @@ export class SocialComponent implements OnInit {
     return this._results.searchHits.map((result) => {
       return result.fields.email[0].address; // TODO: deal with jerks that don't have emails
     })
-  }
-
-  public sortChanged(activeSort: ListSortFieldSelectorModel) {
-    // console.log(activeSort);
   }
 
   static _getLocationRadiusOptions() {

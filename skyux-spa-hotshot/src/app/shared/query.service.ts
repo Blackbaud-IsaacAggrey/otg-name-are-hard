@@ -11,14 +11,6 @@ export interface SearchHit {
   fields: any;
 }
 
-export interface ErMahBox {
-
-}
-
-export interface Filter {
-
-}
-
 export interface Location {
   latitude: number;
   longitude: number;
@@ -32,14 +24,12 @@ export interface SearchResult {
   aggregations?: any;
 }
 
-
 @Injectable()
 export class QueryService {
   private static _resultsUpdated: EventEmitter<SearchResult>;
   public location: Location;
   public distance: number;
   public socialTags: string[];
-
 
   constructor(private http: Http) {
   }
@@ -49,7 +39,7 @@ export class QueryService {
     return QueryService._resultsUpdated;
   }
 
-  public query(): Observable<ErMahBox> {
+  public query(): Observable<any> {
     let filters = [];
     if (this.socialTags.length > 0) {
       filters.push({"type":"value","field":"social.aiTags",
@@ -67,6 +57,5 @@ export class QueryService {
             "fieldSorts":[{"field":"cons_name.last","ordering":"ASCENDING"},
               {"field":"cons_name.first","ordering":"ASCENDING"}],"returnedFields":[]}) // NO THIS IS WRONG
         .map(response => response.json());
-        // .do((results) => QueryService._resultsUpdated.emit(results))
   }
 }
