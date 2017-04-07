@@ -143,7 +143,7 @@ export class SocialComponent implements OnInit {
   }
 
   static _getLocationRadiusOptions() {
-    return [5, 10, 15, 20, 25, 30, 35, 40, 45, 50].map((radius) => {
+    return [5, 20, 50, 100, 300].map((radius) => {
       return {
         radius,
         description: `${radius} miles`,
