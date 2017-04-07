@@ -1,6 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { QueryService, SearchResult } from '../shared/query.service';
-import { ListSortFieldSelectorModel } from '@blackbaud/skyux/dist/core';
 
 @Component({
   selector: 'social',
@@ -8,8 +7,17 @@ import { ListSortFieldSelectorModel } from '@blackbaud/skyux/dist/core';
   providers: [ QueryService ],
   //styleUrls: ['./social.component.scss']
 })
-export class SocialComponent {
+export class SocialComponent implements OnInit {
   private _results: SearchResult = { searchHits: [] };
+  private userPosition: Coordinates = {
+      latitude: 30.35332,
+      longitude: -97.7444,
+      accuracy: 0.0,
+      altitude: 0.0,
+      altitudeAccuracy: null,
+      heading: null,
+      speed: null
+    };
 
   public socialFilters = [
     {
@@ -55,16 +63,12 @@ export class SocialComponent {
     return this.socialFilters.filter((item) => {
       return item.checked;
     }).map((checkedItem) => {
-      console.log(checkedItem.filter);
       return checkedItem.filter;
     })
   }
 
   get location () {
-    return {
-      latitude: 30.35332,
-      longitude: -97.7444
-    };
+    return this.userPosition;
   }
 
   get selectedRadius() {
@@ -72,6 +76,15 @@ export class SocialComponent {
       return option.selected === true;
     });
     return selection.length > 0 ? selection[0] : this.locationRadiusOptions[0];
+  }
+
+  get mailAddress() {
+    let emailList = '';
+    if (this.emails.length > 0) {
+      emailList = this.emails.join()
+    }
+
+    return `mailto:nerds@ermernerds.com?subject=WudUp Nerds!&bcc=${emailList}`;
   }
 
   public selectRadius(radiusOption) {
@@ -86,24 +99,26 @@ export class SocialComponent {
     if (this.locationFilters[0].checked) {
       this.service.distance = this.selectedRadius.radius;
       this.service.location = this.location;
+    } else {
+      delete this.service.location;
     }
     this.service.query()
         .subscribe(data => {
           this._results = data;
-          console.log(this._results.searchHits);
           this._results.searchHits.forEach((item, i) => {
             item.fullName = item.fields.cons_name.first + ' ' + item.fields.cons_name.last;
             item.id = i + 1;
+            item.influencerType = item.fields.social.aiTags;
           });
         });
   }
 
-  public beCurrency(dollar) {
-    // return $filter('currency')(dollar, '$');
+  private getIcon(value) {
+    return value === 'vip' ? 'trophy' : value === 'media' ? 'newspaper-o' : value === 'everyday' ? 'bullhorn' : '';
   }
 
-  public clearResults() {
-    this._results.searchHits = [];
+  get totalHits() {
+    return this.results.totalHits || 0;
   }
 
   get emails() {
@@ -112,12 +127,8 @@ export class SocialComponent {
     })
   }
 
-  public sortChanged(activeSort: ListSortFieldSelectorModel) {
-    // console.log(activeSort);
-  }
-
   static _getLocationRadiusOptions() {
-    return [5, 10, 15, 20, 25, 30, 35, 40, 45, 50].map((radius) => {
+    return [5, 20, 50, 100, 300].map((radius) => {
       return {
         radius,
         description: `${radius} miles`,
@@ -126,5 +137,12 @@ export class SocialComponent {
     });
   }
 
-  constructor(private service: QueryService) {}
+  constructor(private service: QueryService) {
+  }
+
+  ngOnInit() {
+    navigator.geolocation.getCurrentPosition((pos) => {
+      this.userPosition = pos.coords;
+    });
+  }
 }

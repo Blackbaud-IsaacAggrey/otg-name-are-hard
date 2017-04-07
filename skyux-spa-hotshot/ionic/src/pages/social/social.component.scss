@@ -1,40 +1,47 @@
-social {
-  .content-container {
-    width: 90%;
-    margin: 0 auto;
+.content-container {
+  width: 90%;
+  margin: 0 auto;
+}
+
+button {
+  &:focus {
+    outline: none;
   }
 
-  button {
-    &:focus {
-      outline: none;
-    }
-
-    &:hover {
-      background-color: #2b89e2;
-      border-color: #2b89e2;
-      cursor: pointer;
-    }
+  &:hover {
+    background-color: #2b89e2;
+    border-color: #2b89e2;
+    cursor: pointer;
   }
+}
 
-  .filter-container {
-    padding: 5px 10px;
-    margin-bottom: 15px;
+.filter-container {
+  padding: 5px 10px;
+  margin-bottom: 15px;
 
-    &.location-filter {
-      overflow: auto;
-    }
+  &.location-filter {
+    overflow: auto;
   }
+}
 
-  .location-checkbox-container {
-    display: inline-block;
-    float: left;
-    height: 100%;
-    padding: 5px 0;
-  }
+.location-checkbox-container {
+  display: inline-block;
+  float: left;
+  height: 100%;
+  padding: 5px 0;
+}
 
-  .location-dropdown-container {
-    display: inline-block;
-    float: left;
-    margin-left: 5px;
-  }
+.location-dropdown-container {
+  display: inline-block;
+  float: left;
+  margin-left: 5px;
+}
+
+.sky-btn-action {
+  background-color: white
+}
+
+.fa:hover {
+  cursor: pointer;
+  cursor: hand;
 }

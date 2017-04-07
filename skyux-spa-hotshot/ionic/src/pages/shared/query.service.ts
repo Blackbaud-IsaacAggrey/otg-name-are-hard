@@ -7,15 +7,8 @@ import 'rxjs/add/operator/do';
 export interface SearchHit {
   id? : any;
   fullName?: string;
+  influencerType?: string;
   fields: any;
-}
-
-export interface ErMahBox {
-
-}
-
-export interface Filter {
-
 }
 
 export interface Location {
@@ -31,14 +24,12 @@ export interface SearchResult {
   aggregations?: any;
 }
 
-
 @Injectable()
 export class QueryService {
   private static _resultsUpdated: EventEmitter<SearchResult>;
   public location: Location;
   public distance: number;
   public socialTags: string[];
-
 
   constructor(private http: Http) {
   }
@@ -48,7 +39,7 @@ export class QueryService {
     return QueryService._resultsUpdated;
   }
 
-  public query(): Observable<ErMahBox> {
+  public query(): Observable<any> {
     let filters = [];
     if (this.socialTags.length > 0) {
       filters.push({"type":"value","field":"social.aiTags",
@@ -61,11 +52,10 @@ export class QueryService {
         "address":"deez nuts"})
     }
     return this.http
-      .post(`https://localhost:8000/api/segment/constituents?set_from=0&set_size=20`,
-          {"filters":filters,
-            "fieldSorts":[{"field":"cons_name.last","ordering":"ASCENDING"},
-              {"field":"cons_name.first","ordering":"ASCENDING"}],"returnedFields":[]}) // NO THIS IS WRONG
+      .get(`query-results.json`)
+          //{"filters":filters,
+          //  "fieldSorts":[{"field":"cons_name.last","ordering":"ASCENDING"},
+          //    {"field":"cons_name.first","ordering":"ASCENDING"}],"returnedFields":[]}) // NO THIS IS WRONG
         .map(response => response.json());
-        // .do((results) => QueryService._resultsUpdated.emit(results))
   }
 }

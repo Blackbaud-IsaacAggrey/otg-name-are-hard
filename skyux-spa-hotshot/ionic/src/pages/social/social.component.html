@@ -37,12 +37,19 @@
       <button type="button" id="getResultsButton" class="sky-btn sky-btn-primary"
               (click)="loadErMahResults()" [hidden]="resultsAvailable">Go!</button>
       <button type="button" id="clearResultsButton" class="sky-btn sky-btn-primary"
-              (click)="clearResults()" [hidden]="!resultsAvailable">Clear the nerds!</button>
+              (click)="loadErMahResults()" [hidden]="!resultsAvailable">Get it again!</button>
     </div>
     <div class="results-container" [hidden]="!resultsAvailable" >
       <hr/>
+      <h1>ERMEHGERD! You are near {{ totalHits }} nerds!
+        <a type="button" id="emailNerdsButton" class="sky-btn sky-btn-action"
+                [href]="mailAddress" [hidden]="!resultsAvailable">Holler at those nerds!
+        </a>
+      </h1>
       <sky-grid [data]="results.searchHits" (sortFieldChange)="sortChanged($event)">
-        <sky-grid-column id="donorName" field="fullName" heading="Name"></sky-grid-column>
+        <sky-grid-column width=30 id="badge" field="influencerType" [template]="badgeTemplate"></sky-grid-column>
+        <sky-grid-column id="donorName" field="fullName"
+                         heading="Name" [template]="nameTemplate"></sky-grid-column>
         <sky-grid-column id="lastTransaction" field="fields.last_transaction_amount"
                          heading="Last Transaction" [template]="currencyTemplate"></sky-grid-column>
         <sky-grid-column id="lifetimeTransaction" field="fields.transaction_totals.lifetime_total"
@@ -54,4 +61,10 @@
 
 <template let-value="value" #currencyTemplate>
   {{ value | currency: 'USD':true }}
+</template>
+
+<template let-value="value" #badgeTemplate>
+  <i class="fa fa-{{ value === 'vip' ? 'trophy' : value === 'media' ? 'newspaper-o' : value === 'everyday' ? 'bullhorn' : '' }}"
+     data-toggle="tooltip"
+     title="{{value}}" aria-hidden="true"></i>
 </template>
