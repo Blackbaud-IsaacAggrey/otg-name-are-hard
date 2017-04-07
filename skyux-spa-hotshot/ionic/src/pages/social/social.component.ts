@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { QueryService, SearchResult } from '../shared/query.service';
+import { ListSortFieldSelectorModel } from '@blackbaud/skyux/dist/core';
 
 @Component({
   selector: 'social',
@@ -84,7 +85,7 @@ export class SocialComponent implements OnInit {
       emailList = this.emails.join()
     }
 
-    return `mailto:nerds@ermernerds.com?subject=WudUp Nerds!&bcc=${emailList}`;
+    return `mailto:nerds@ermernerds.com?subject=Help Good Take Over!&bcc=${emailList}`;
   }
 
   public selectRadius(radiusOption) {
@@ -125,6 +126,10 @@ export class SocialComponent implements OnInit {
     return this._results.searchHits.map((result) => {
       return result.fields.email[0].address; // TODO: deal with jerks that don't have emails
     })
+  }
+
+  public sortChanged(activeSort: ListSortFieldSelectorModel) {
+    // console.log(activeSort);
   }
 
   static _getLocationRadiusOptions() {

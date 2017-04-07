@@ -4,9 +4,9 @@ import { ListSortFieldSelectorModel } from '@blackbaud/skyux/dist/core';
 
 @Component({
   selector: 'social',
-  templateUrl: './home.component.html',
+  templateUrl: './social.component.html',
   providers: [ QueryService ],
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./social.component.scss']
 })
 export class SocialComponent implements OnInit {
   private _results: SearchResult = { searchHits: [] };

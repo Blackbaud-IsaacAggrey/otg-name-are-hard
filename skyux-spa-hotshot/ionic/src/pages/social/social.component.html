@@ -1,7 +1,7 @@
-<!--<app-nav></app-nav>-->
+<app-nav></app-nav>
 
 <div class="content-container">
-  <h1>Whurr Mah Nerds?</h1>
+  <h1>Who can I reach?</h1>
   <div class="filters-container">
     <div class="social-container">
       <h2>I want to include...</h2>
@@ -36,16 +36,16 @@
     <div class="get-results-button-container">
       <button type="button" id="getResultsButton" class="sky-btn sky-btn-primary"
               (click)="loadErMahResults()" [hidden]="resultsAvailable">Go!</button>
-      <button type="button" id="clearResultsButton" class="sky-btn sky-btn-primary"
-              (click)="loadErMahResults()" [hidden]="!resultsAvailable">Get it again!</button>
+      <button type="button" id="clearResultsButton" class="sky-btn sky-btn-action"
+              (click)="loadErMahResults()" [hidden]="!resultsAvailable">Refresh results</button>
     </div>
     <div class="results-container" [hidden]="!resultsAvailable" >
       <hr/>
-      <h1>ERMEHGERD! You are near {{ totalHits }} nerds!
-        <a type="button" id="emailNerdsButton" class="sky-btn sky-btn-action"
-                [href]="mailAddress" [hidden]="!resultsAvailable">Holler at those nerds!
-        </a>
+      <h1>You can reach {{ totalHits }} influencers!
       </h1>
+      <p><a role="button" id="emailNerdsButton" class="sky-btn sky-btn-primary"
+             [href]="mailAddress" [hidden]="!resultsAvailable">Spread the social good
+      </a></p>
       <sky-grid [data]="results.searchHits" (sortFieldChange)="sortChanged($event)">
         <sky-grid-column width=30 id="badge" field="influencerType" [template]="badgeTemplate"></sky-grid-column>
         <sky-grid-column id="donorName" field="fullName"

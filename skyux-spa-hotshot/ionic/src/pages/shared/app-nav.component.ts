@@ -12,8 +12,8 @@ export class AppNavComponent {
       path: '/'
     },
     {
-      name: 'Social',
-      path: '/social'
+      name: 'Nerds',
+      path: '/nerds'
     }
   ];
 }
