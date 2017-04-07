@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { QueryService, SearchResult } from './shared/query.service';
 import { ListSortFieldSelectorModel } from '@blackbaud/skyux/dist/core';
 
@@ -8,8 +8,17 @@ import { ListSortFieldSelectorModel } from '@blackbaud/skyux/dist/core';
   providers: [ QueryService ],
   styleUrls: ['./home.component.scss']
 })
-export class SocialComponent {
+export class SocialComponent implements OnInit {
   private _results: SearchResult = { searchHits: [] };
+  private userPosition: Coordinates = {
+      latitude: 30.35332,
+      longitude: -97.7444,
+      accuracy: 0.0,
+      altitude: 0.0,
+      altitudeAccuracy: null,
+      heading: null,
+      speed: null
+    };
 
   public socialFilters = [
     {
@@ -61,10 +70,7 @@ export class SocialComponent {
   }
 
   get location () {
-    return {
-      latitude: 30.35332,
-      longitude: -97.7444
-    };
+    return this.userPosition;
   }
 
   public emailNerds() {
@@ -152,5 +158,12 @@ export class SocialComponent {
     });
   }
 
-  constructor(private service: QueryService) {}
+  constructor(private service: QueryService) {
+  }
+
+  ngOnInit() {
+    navigator.geolocation.getCurrentPosition((pos) => {
+      this.userPosition = pos.coords;
+    });
+  }
 }
